@@ -52,13 +52,14 @@ def ai(prompt):
         f.write(text)
 
 
-
 def say(text):
     engine = pyttsx3.init()
     engine.setProperty('voice', 'english+f3')
+    engine.setProperty('rate', 120)
     engine.say(text)
 
     engine.runAndWait()
+
 
 # def say(text):
 #     engine = pyttsx3.init()
@@ -85,26 +86,31 @@ def takeCommand():
 
 if __name__ == '__main__':
     print('PyCharm')
-    say("Hello, I am Jarvis AI.")
+    say("Hello Shivam, I am Manvi AI your virtual wizard.")
     while True:
         query = takeCommand()
-        sites = [["youtube", "https://www.youtube.com"], ["wikipedia", "https://www.wikipedia.com"],
-                 ["google", "https://www.google.com"]]
+        sites = [["youtube", "https://www.youtube.com"],
+                 ["wikipedia", "https://www.wikipedia.com"],
+                 ["google", "https://www.google.com"],
+                 ["linkedin", "https://www.linkedin.com"],
+                 ]
         for site in sites:
             if f"Open {site[0]}".lower() in query.lower():
                 say(f"Opening {site[0]} sir.....")
-                webbrowser.open(site[1])
+                browser = webbrowser.get()
+                browser.open(site[1])
 
         if "open music" in query:
             musicPath = "/home/node_sm/Downloads/Another Love(Maddj.in).mp3"
             os.system(f'xdg-open "{musicPath}"')
 
-        elif "open brave" in query:
-            os.system(f'xdg-open /opt/brave.com/brave-nightly')
+        elif "open vs code" in query:
+            filePath = "/snap/bin/code"
+            os.system(f'"{filePath}"')
 
         elif "Using Artificial Intelligence".lower() in query.lower():
             ai(prompt=query)
-        elif "Jarvis Quit".lower() in query.lower():
+        elif "Manvi Quit".lower() in query.lower():
             exit()
         elif "reset chat".lower() in query.lower():
             chatStr = ""

@@ -1,0 +1,42 @@
+OpenAI response for Prompt : Manvi using artificial intelligence write a code for constructing binary tree 
+ **************
+
+
+
+// Using Java to write the code for constructing a Binary Tree 
+public class BinaryTree {
+ 
+	// Root of Binary Tree 
+	Node root; 
+ 
+	// Constructors 
+	BinaryTree(int key) 
+	{ 
+		root = new Node(key); 
+	} 
+ 
+	BinaryTree() 
+	{ 
+		root = null; 
+	} 
+ 
+	public static void main(String[] args) 
+	{ 
+		BinaryTree tree = new BinaryTree(); 
+ 
+		/*create root*/
+		tree.root = new Node(1); 
+ 
+		/* following is the tree after above statement 
+ 
+			1 
+			/ \ 
+		null null	 */
+ 
+		tree.root.left = new Node(2); 
+		tree.root.right = new Node(3); 
+ 
+		/* 2 and 3 become left and right children of 1 
+			1 
+			/ \ 
+			2	
